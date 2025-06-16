@@ -2,6 +2,7 @@ import { rmSync, readdir } from 'fs';
 import { join } from 'path';
 import pino from 'pino';
 import * as baileys from '@adiwajshing/baileys';
+import { makeInMemoryStore } from '@adiwajshing/baileys/lib/Store/index.js'; // ✅ التعديل هنا
 import { toDataURL } from 'qrcode';
 import __dirname from './dirname.js';
 import response from './response.js';
@@ -10,7 +11,6 @@ import axios from 'axios';
 const makeWASocket = baileys.default;
 const {
   useMultiFileAuthState,
-  makeInMemoryStore,
   Browsers,
   DisconnectReason,
   delay
@@ -112,7 +112,7 @@ const createSession = async (sessionId, isLegacy = false, res = null) => {
           received_data['message_id'] = message.key.id;
           received_data['message'] = message.message;
 
-          sentWebHook(sessionId, received_data); // تأكد أن sentWebHook معرفة في ملفك
+          sentWebHook(sessionId, received_data); // تأكد من تعريف sentWebHook
         }
       }
     } catch {}
@@ -174,7 +174,7 @@ const deleteSession = (sessionId, isLegacy = false) => {
   sessions.delete(sessionId);
   retries.delete(sessionId);
 
-  setDeviceStatus(sessionId, 0); // تأكد أن هذه الدالة معرفة في كودك
+  setDeviceStatus(sessionId, 0); // تأكد من تعريف هذه الدالة
 };
 
 const getChatList = (sessionId, isGroup = false) => {
