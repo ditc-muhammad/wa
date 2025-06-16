@@ -13,7 +13,7 @@
   },
   "dependencies": {
   "@adiwajshing/keyed-db": "^0.2.4",
-  "@adiwajshing/baileys": "github:WhiskeySockets/Baileys#multi-device",
+  "@adiwajshing/baileys": "github:WhiskeySockets/Baileys#v6.7.18",
   "axios": "^1.2.2",
   "cors": "^2.8.5",
   "dotenv": "^16.0.0",
