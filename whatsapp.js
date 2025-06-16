@@ -1,13 +1,22 @@
 import { rmSync, readdir } from 'fs'
 import { join } from 'path'
 import pino from 'pino'
-import makeWASocket, {
+import pkg from '@adiwajshing/baileys';
+const {
+  default: makeWASocket,
+  makeInMemoryStore,
+  useMultiFileAuthState,
+  Browsers,
+  DisconnectReason,
+  delay
+} = pkg;
+/*import makeWASocket, {
     useMultiFileAuthState,
     makeInMemoryStore,
     Browsers,
     DisconnectReason,
     delay,
-} from '@adiwajshing/baileys'
+} from '@adiwajshing/baileys'*/
 import { toDataURL } from 'qrcode'
 import __dirname from './dirname.js'
 import response from './response.js'
